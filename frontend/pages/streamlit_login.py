@@ -2,7 +2,12 @@
 import streamlit as st
 from styles import SHARED_CSS
 import requests
-from api_config import BACKEND_URL
+import os
+
+BACKEND_URL = os.getenv(
+    "BACKEND_URL",
+    "https://backend-chat-beyn.onrender.com"
+)
 
 st.set_page_config(
     page_title="Corporate Smart Messenger – Login",
