@@ -9,27 +9,6 @@ BACKEND_URL = os.getenv(
     "https://backend-chat-beyn.onrender.com"
 )
 
-def login_user(login_id, password):
-    try:
-        response = requests.post(
-            f"{BACKEND_URL}/login",
-            json={
-                "login_id": login_id,
-                "password": password
-            },
-            timeout=15
-        )
-
-        data = response.json()
-
-        if response.status_code == 200:
-            return True, data.get("message", "Login successful"), data.get("user_data", {})
-        else:
-            return False, data.get("message", "Login failed"), None
-
-    except Exception as e:
-        return False, str(e), None
-
 st.set_page_config(
     page_title="Corporate Smart Messenger – Login",
     page_icon="💬",
