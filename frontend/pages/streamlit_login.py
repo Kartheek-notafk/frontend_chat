@@ -115,7 +115,7 @@ with st.form("login_form", clear_on_submit=False):
     
     if submitted:
         if login_id and password:
-            success, message, user_data = auth(login_id, password)
+            success, message, user_data = login_user(login_id, password)
             
             if success and user_data:
                 # Store user info in session state
